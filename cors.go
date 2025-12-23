@@ -12,6 +12,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Added this test comment will not be merged
+
 // Config is the configuration for the cors middleware.
 type Config struct {
 	// All the allowed origins in an array. The default is "*".
