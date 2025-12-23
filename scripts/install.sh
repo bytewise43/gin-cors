@@ -24,16 +24,22 @@ if [[ ":$PATH:" != *":$(go env GOPATH)/bin:"* ]]; then
 fi
 
 # Install golangci-lint
-echo -e "${BLUE}Installing golangci-lint...${NC}"
-curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.5.0
+if ! command -v golangci-lint &> /dev/null
+then
+    echo -e "${BLUE}Installing golangci-lint...${NC}"
+    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin
+fi
 
 # Install pre-commit
-echo -e "${BLUE}Installing pre-commit...${NC}"
-if command -v pipx &> /dev/null; then
-    pipx install pre-commit
-else
-    echo -e "${RED}pipx could not be found. Please install pipx and add this:\n\n  export PATH=\$PATH:/home/$(whoami)/.local/bin\n\nto your shell rc and try again.${NC}"
-    exit 1
+if ! command -v golangci-lint &> /dev/null
+then
+    echo -e "${BLUE}Installing pre-commit...${NC}"
+    if command -v pipx &> /dev/null; then
+        pipx install pre-commit
+    else
+        echo -e "${RED}pipx could not be found. Please install pipx and add this:\n\n  export PATH=\$PATH:/home/$(whoami)/.local/bin\n\nto your shell rc and try again.${NC}"
+        exit 1
+    fi
 fi
 
 # Install pre-commit hooks
