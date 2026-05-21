@@ -243,7 +243,11 @@ func TestCorsMiddleware_HeaderValidation(t *testing.T) {
 				assert.NotPanics(t, func() {
 					validatedConfig := tc.config.validate()
 					if tc.expectedConfig != nil && tc.expectedConfig.AllowedOrigins != nil {
-						assert.Equal(t, tc.expectedConfig.AllowedOrigins, validatedConfig.AllowedOrigins)
+						assert.Equal(
+							t,
+							tc.expectedConfig.AllowedOrigins,
+							validatedConfig.AllowedOrigins,
+						)
 					}
 				})
 			}
