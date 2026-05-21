@@ -60,5 +60,3 @@ jobs:
         with:
           go-version-file: "go.work"
       - uses: golangci/golangci-lint-action@v8
-      - name: lint
-        run: go tool golangci-lint run
