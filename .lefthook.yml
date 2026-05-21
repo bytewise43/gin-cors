@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      run: go tool golangci-lint run
+    test:
+      run: go test -v ./...
+    go-mod-tidy:
+      run: go mod tidy

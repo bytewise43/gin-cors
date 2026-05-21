@@ -1,4 +1,4 @@
-module github.com/OnlyNico43/gin-cors/v2
+module github.com/bytewise43/gin-cors/v2
 
 go 1.25.5
 

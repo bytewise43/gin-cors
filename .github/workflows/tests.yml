@@ -61,4 +61,4 @@ jobs:
           go-version-file: "go.mod"
       - uses: golangci/golangci-lint-action@v8
       - name: lint
-        run: golangci-lint run
+        run: go tool golangci-lint run

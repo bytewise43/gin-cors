@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	cors "github.com/OnlyNico43/gin-cors/v2"
+	cors "github.com/bytewise43/gin-cors/v2"
 	"github.com/gin-gonic/gin"
 )
 
